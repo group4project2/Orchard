@@ -8,5 +8,14 @@
 // on sale? (T/F)
 
 
-// 7:24
 // also: category (fruit, vegetable, plant, or flower)
+
+
+
+// // SALES
+// ID number
+// date of sale
+// items sold
+// order total
+
+
