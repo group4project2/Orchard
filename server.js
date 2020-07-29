@@ -5,7 +5,7 @@
 // *** Dependencies
 // =============================================================
 const express = require('express');
-const routes = require('./controller/routes/routes.js');
+const routes = require('./controllers/');
 const app = express();
 const PORT = process.env.PORT || 3001;
 var db = require('./model');
