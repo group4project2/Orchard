@@ -8,7 +8,7 @@ const express = require('express');
 const routes = require('./controllers/');
 const app = express();
 const PORT = process.env.PORT || 3001;
-var db = require('./model');
+var db = require('./models');
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
