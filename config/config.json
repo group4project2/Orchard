@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "passwordpassword?",
-    "database": "project_setup",
+    "password": "password",
+    "database": "Orchard",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
