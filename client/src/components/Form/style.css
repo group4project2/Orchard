@@ -1,3 +1,10 @@
+#root {
+  padding: 4%;
+  font-weight: 4%;
+  font-family: 'Rubik', sans-serif;
+  color: darkgreen;
+}
+
 .form {
   margin: 20px;
 }
@@ -7,4 +14,7 @@
   margin-top: 5px;
   margin-bottom: 5px;
   width: 100%;
+}
+body {
+  background: linear-gradient(90deg, rgba(201,223,189,1) 0%, rgba(255,241,170,1) 100%);
 }

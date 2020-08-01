@@ -4,8 +4,8 @@ import './style.css';
 class Form extends Component {
   // Setting the component's initial state
   state = {
-    firstName: '',
-    lastName: '',
+    username: '',
+    password: '',
   };
 
   callMyBackEnd = (event) => {
@@ -20,7 +20,7 @@ class Form extends Component {
 
     var config = {
       method: 'get',
-      url: '/api/burger/burgers',
+      url: '/api/users/users',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -31,8 +31,8 @@ class Form extends Component {
       .then((response) => {
         console.log(JSON.stringify(response.data));
         this.setState({
-          firstName: '',
-          lastName: '',
+          username: '',
+          password: '',
           myData: response.data,
         });
       })
@@ -55,13 +55,6 @@ class Form extends Component {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
     this.callMyBackEnd();
-    // Commenting this out
-    // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
-    // alert(`Hello ${this.state.firstName} ${this.state.lastName}`);
-    // this.setState({
-    //   firstName: '',
-    //   lastName: '',
-    // });
   };
 
   // Lifecycle methods
@@ -69,25 +62,24 @@ class Form extends Component {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
-        <p>
-          Hello {this.state.firstName} {this.state.lastName}
-        </p>
-        Your Favorite Burger is:{' '}
-        {this.state.myData ? this.state.myData[0].burger_name : null}
+        <h1>
+          Welcome to Orchard 🍊
+        </h1>
+        Put your best fruit forward{' '}
         <form className="form">
           <input
-            value={this.state.firstName}
-            name="firstName"
+            value={this.state.username}
+            name="username"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="First Name"
+            placeholder="Username"
           />
           <input
-            value={this.state.lastName}
-            name="lastName"
+            value={this.state.password}
+            name="password"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="Last Name"
+            placeholder="Password"
           />
           <button onClick={this.handleFormSubmit}>Submit</button>
         </form>
