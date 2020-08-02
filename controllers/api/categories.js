@@ -6,22 +6,22 @@ router.get('/', function (req, res) {
 });
 
 // get route, edited to match sequelize
-router.get('/employee', function (req, res) {
+router.get('/category', function (req, res) {
   // replace old function with sequelize function
-  db.Employee.findAll({
+  db.Category.findAll({
     // Here we specify we want to return our Inventory in ordered by ascending Inventory_name
-    order: [['first_name', 'ASC']],
+    order: [['name', 'ASC']],
   })
     // use promise method to pass the Inventory...
-    .then(function (dbEmployee) {
+    .then(function (dbCategory) {
       // into the main index, updating the page
-      console.log(dbEmployee);
+      console.log(dbCategory);
       var hbsObject = {
-        employee: dbEmployee,
+        category: dbCategory,
       };
       //I'M NOT USING HANDLEBARS! WE CANT USE THIS.
       // return res.render('index', hbsObject);
-      return res.json(dbEmployee);
+      return res.json(dbCategory);
     });
 });
 

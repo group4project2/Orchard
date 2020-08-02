@@ -1,9 +1,12 @@
 const router = require('express').Router();
-const inventoryRoutes = require('./Inventory');
-const employeeRoutes = require('./employees');
-// Book routes
+const inventoryRoutes = require('./inventory'); // route works
+const employeeRoutes = require('./employees'); // route works
+const itemRoutes = require('./items'); // route works
+const categoryRoutes = require('./categories');
+
 router.use('/inventory', inventoryRoutes); // add inventory
-router.use('/employees', employeeRoutes); // add categories
-router.use('/categories', inventoryRoutes); // add inventory
+router.use('/employees', employeeRoutes); // add employees
+router.use('/items', itemRoutes); // add items
+router.use('/categories', categoryRoutes); // add categories
 
 module.exports = router;
