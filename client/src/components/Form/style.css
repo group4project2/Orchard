@@ -6,6 +6,17 @@
 }
 .navbar {
   background: linear-gradient(0deg, rgba(134,134,134,0.700717787114846) 27%, rgba(170,170,170,0.6811099439775911) 66%);
+  
+}
+
+#nav-logo {
+  font-family: 'Alata', sans-serif;
+  color: navy;
+    -webkit-text-fill-color: orange;
+    -webkit-text-stroke-width: .026em;
+    display: grid;
+    justify-content: center;
+  font-size: 1em;
 }
 .form {
   margin: 20px;
