@@ -1,6 +1,4 @@
-import React, { Component, useState } from "react";
-import axios from "axios";
-const url = "http://localhost:3001/api/items/add";
+import React, { useState } from "react";
 
 const [data,setData]=useState({
   name:"",
@@ -8,47 +6,48 @@ const [data,setData]=useState({
   expiration:""
 })
 
-export class ItemForm extends Component {
-  // Setting the component's initial state
-    state = {
-      name: "",
-      quantity: "",
-      expiration: ""
-    };
+state = {
+  name: "",
+  quantity: "",
+  expiration: ""
+};
+
+handleInputChange = event => {
+  // Getting the value and name of the input which triggered the change
+  const newdata={...data}
+  newdata[event.target.id]=event.target.value
+  setData(newdata)
+  let value = event.target.value;
+  const name = event.target.name;
+  // Updating the input's state
+  this.set({
+    [name]: value
+  });
+};
+
+handleFormSubmit = event => {
+  // Preventing the default behavior of the form submit (which is to refresh the page)
+  event.preventDefault();
+  console.log(this.state)
+  if (!this.state.name || !this.state.quantity) {
+    alert("Fill out the full information please!");
+  } else {
+    const options = {
+      method: "POST"
+  };
   
-    handleInputChange = event => {
-      // Getting the value and name of the input which triggered the change
-      const newdata={...data}
-      newdata[event.target.id]=event.target.value
-      setData(newdata)
-      let value = event.target.value;
-      const name = event.target.name;
-      // Updating the input's state
-      this.set({
-        [name]: value
-      });
-    };
-  
-    handleFormSubmit = event => {
-      // Preventing the default behavior of the form submit (which is to refresh the page)
-      event.preventDefault();
-      console.log(this.state)
-      if (!this.state.name || !this.state.quantity) {
-        alert("Fill out the full information please!");
-      } else {
-        axios.post(url , data)
-        .then(response => {
-          console.log(response.data)
-        });
-        alert(`${this.state.name} has been successfully saved`)
-      }
-    };
-  
-    render() {
-      // Notice how each input has a `value`, `name`, and `onChange` prop
-      return (
-        <div>
-          <p>
+  fetch("localhost:3000/api/items", options)
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+    alert(`${this.state.name} has been successfully saved`)
+  }
+};
+
+export default function ItemForm() {
+
+  return (
+    <div>
+      <p>
               Item Form
           </p>
           <form className="form" onSubmit={this.handleFormSubmit}>
@@ -76,10 +75,6 @@ export class ItemForm extends Component {
             />
             <button onClick={this.handleFormSubmit}>Submit</button>
           </form>
-        </div>
-      );
-    }
-  }
-  
-    
-export default ItemForm;
+    </div>
+  )
+}

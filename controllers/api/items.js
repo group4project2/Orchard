@@ -32,16 +32,15 @@ router.post('/add', function (req, res) {
     name: req.body.name,
     quantity: req.body.quantity,
     price: req.body.price,
-    date_received: req.body.date_received,
+    date_received: req.query.date_received,
     exp_date: req.body.exp_date,
-    categoryID: req.body.categoryID
+    categoryID: req.query.categoryID
   })
     // pass the result of our call
-    .then(function (dbInventory) {
+    .then(function (dbcreateItem) {
       // log the result to our terminal/bash window
-      console.log(dbInventory);
       // redirect
-      res.redirect('/');
+      res.json(dbcreateItem)
     }).catch(function (err) {
       // log the result to our terminal/bash window
       res.send(err)
