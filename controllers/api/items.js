@@ -26,19 +26,28 @@ router.get('/item', function (req, res) {
 });
 
 // post route to create Inventory
-// router.post('/Inventory/create', function (req, res) {
-//   // edited Inventory create to add in a Inventory_name
-//   db.Inventory.create({
-//     Inventory_name: req.body.Inventory_name,
-//   })
-//     // pass the result of our call
-//     .then(function (dbInventory) {
-//       // log the result to our terminal/bash window
-//       console.log(dbInventory);
-//       // redirect
-//       res.redirect('/');
-//     });
-// });
+router.post('/add', function (req, res) {
+  // edited Inventory create to add in a Inventory_name
+  db.Item.create({
+    name: req.body.name,
+    quantity: req.body.quantity,
+    price: req.body.price,
+    date_received: req.body.date_received,
+    exp_date: req.body.exp_date,
+    categoryID: req.body.categoryID
+  })
+    // pass the result of our call
+    .then(function (dbInventory) {
+      // log the result to our terminal/bash window
+      console.log(dbInventory);
+      // redirect
+      res.redirect('/');
+    }).catch(function (err) {
+      // log the result to our terminal/bash window
+      res.send(err)
+      // redirect
+    });
+});
 
 // // put route to devour a Inventory
 // router.put('/Inventory/update', function (req, res) {
