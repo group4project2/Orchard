@@ -25,9 +25,8 @@ router.get('/item', function (req, res) {
     });
 });
 
-// post route to create Inventory
+// post route to create item
 router.post('/add', function (req, res) {
-  // edited Inventory create to add in a Inventory_name
   db.Item.create({
     name: req.body.name,
     quantity: req.body.quantity,
