@@ -6,9 +6,9 @@ router.get('/', function (req, res) {
 });
 
 // get route, edited to match sequelize
-router.get('/category', function (req, res) {
+router.get('/categories', function (req, res) {
   // replace old function with sequelize function
-  db.Category.findAll({
+  db.category.findAll({
     // Here we specify we want to return our Inventory in ordered by ascending Inventory_name
     order: [['name', 'ASC']],
   })

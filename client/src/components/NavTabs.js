@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function NavTabs(props) {
   return (
@@ -6,8 +6,12 @@ function NavTabs(props) {
       <li className="nav-item">
         <a
           href="#Menu"
-          onClick={() => props.handlePageChange("Menu")}
-          className={props.currentPage === "Menu" ? "nav-link active" : "nav-link"}
+          onClick={() => props.handlePageChange('Menu')}
+          className={
+            props.currentPage === 'Menu'
+              ? 'nav-link active'
+              : 'nav-link'
+          }
         >
           Menu
         </a>
@@ -15,8 +19,12 @@ function NavTabs(props) {
       <li className="nav-item">
         <a
           href="#Add"
-          onClick={() => props.handlePageChange("Add")}
-          className={props.currentPage === "Add" ? "nav-link active" : "nav-link"}
+          onClick={() => props.handlePageChange('Add')}
+          className={
+            props.currentPage === 'Add'
+              ? 'nav-link active'
+              : 'nav-link'
+          }
         >
           Add
         </a>
@@ -24,17 +32,25 @@ function NavTabs(props) {
       <li className="nav-item">
         <a
           href="#Edit"
-          onClick={() => props.handlePageChange("Edit")}
-          className={props.currentPage === "Edit" ? "nav-link active" : "nav-link"}
+          onClick={() => props.handlePageChange('Edit')}
+          className={
+            props.currentPage === 'Edit'
+              ? 'nav-link active'
+              : 'nav-link'
+          }
         >
-          Edit
+          View
         </a>
       </li>
       <li className="nav-item">
         <a
           href="#contact"
-          onClick={() => props.handlePageChange("Contact")}
-          className={props.currentPage === "Contact" ? "nav-link active" : "nav-link"}
+          onClick={() => props.handlePageChange('Contact')}
+          className={
+            props.currentPage === 'Contact'
+              ? 'nav-link active'
+              : 'nav-link'
+          }
         >
           Contact
         </a>
