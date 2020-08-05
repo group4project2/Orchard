@@ -1,14 +1,23 @@
 const router = require('express').Router();
-var db = require('../../models');
+var db = require('./../../models');
 // get route -> index
 router.get('/', function (req, res) {
   //do things here for other routes
 });
 
 // get route, edited to match sequelize
+router.post('/categories', function(req, res){
+  db.Categories.create({
+    name: req.body.name
+  })
+  .catch(function(err) {
+    res.status(401).json(err);
+  });
+})
+
 router.get('/categories', function (req, res) {
   // replace old function with sequelize function
-  db.category.findAll({
+  db.findAll({
     // Here we specify we want to return our Inventory in ordered by ascending Inventory_name
     order: [['name', 'ASC']],
   })
@@ -19,9 +28,13 @@ router.get('/categories', function (req, res) {
       var hbsObject = {
         category: dbCategory,
       };
+      console.log(hbsObject);
       //I'M NOT USING HANDLEBARS! WE CANT USE THIS.
       // return res.render('index', hbsObject);
       return res.json(dbCategory);
+    })
+    .catch(err => {
+      res.send('error : ' + err);
     });
 });
 

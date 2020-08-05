@@ -5,20 +5,24 @@
 // *** Dependencies
 // =============================================================
 const express = require('express');
-const routes = require('./controllers/');
+//const routes = require('./controllers/');
 const app = express();
 const PORT = process.env.PORT || 3001;
-var db = require('./models');
+var db = require('./database');
 
 // Define middleware here
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 // Add routes, both API and view
-app.use(routes);
+//app.use(routes);
+// adding category route
+const Category = require('./controllers/Categories');
+app.use('/categories', Category);
+
 
 // Start the API server
 // ADD SEQUELIZE HERE TO CONNECT TO YOUR DB
