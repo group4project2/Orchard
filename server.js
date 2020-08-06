@@ -20,8 +20,10 @@ if (process.env.NODE_ENV === 'production') {
 // Add routes, both API and view
 //app.use(routes);
 // adding category route
-const Category = require('./controllers/Categories');
-app.use('/categories', Category);
+
+// MIKES CHANGES: Refactored route definitions to be shorter and more clear
+app.use('/api/categories', require('./controllers/Categories'));
+app.use('/api/items', require('./controllers/Items'));
 
 
 // Start the API server

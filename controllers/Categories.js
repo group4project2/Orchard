@@ -3,22 +3,22 @@ const category = express.Router();
 
 const Category = require('../models/Category');
 
-category.post('/types', (req, res) => {
-    Category.create({
-        name: req.body.name
-    })
+category.post('/', (req, res) => {
+  Category.create({
+    name: req.body.name
+  })
     .then(user => {
-        res.json({ status: 'Item added!' })
-      })
-      .catch(err => {
-        res.send('error: ' + err)
-      });
+      res.json({ status: 'Item added!' })
+    })
+    .catch(err => {
+      res.send('error: ' + err)
+    });
 })
 
-category.get('/items', function (req, res) {
+category.get('/', function (req, res) {
   // replace old function with sequelize function
   Category.findAll(
-    
+
   )
     // use promise method to pass the Inventory...
     .then(function (dbCategory) {
