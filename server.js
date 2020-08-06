@@ -21,9 +21,10 @@ if (process.env.NODE_ENV === 'production') {
 //app.use(routes);
 // adding category route
 const Category = require('./controllers/Categories');
+
 app.use('/categories', Category);
-
-
+const Item = require('./controllers/Items');
+app.use('/items', Item);
 // Start the API server
 // ADD SEQUELIZE HERE TO CONNECT TO YOUR DB
 db.sequelize.sync({ force: false }).then(() => {
