@@ -11,10 +11,10 @@ item.post('/items', (req, res) => {
   // Creating a new item with user input
   Item.create({
     name: userInput.name,
-    // quantity: userInput.quantity,
-    // price: userInput.price,
-    // date_received: userInput.date_received,
-    // exp_date: userInput.exp_date,
+    quantity: userInput.quantity,
+    price: userInput.price,
+    date_received: userInput.date_received,
+    exp_date: userInput.exp_date,
   })
     // If successful, send status code and status message that can be used on front end to alert user of success
     .then((item) => res.status(201).json({ status: 'Item added!' }))

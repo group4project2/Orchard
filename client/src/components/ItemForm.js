@@ -1,57 +1,46 @@
 import React, { Component } from 'react';
-const axios = require('axios');
+import { item } from './userFunctions';
 
-class ItemForm extends Component {
-  // Setting the component's initial state
-  state = {
-    name: '',
-    quantity: '',
-    expiration: '',
-  };
+export default class ItemForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: '',
+      quantity: '',
+      price: '',
+      date_received: '',
+      exp_date: '',
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+  }
 
-  handleInputChange = (event) => {
-    // Getting the value and name of the input which triggered the change
-    let value = event.target.value;
-    const name = event.target.name;
-    // Updating the input's state
-    this.setState({
-      [name]: value,
-    });
-  };
+  handleInputChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
 
-  handleFormSubmit = (event) => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
-
+  handleFormSubmit(event) {
     event.preventDefault();
+
+    const chicken = {
+      name: this.state.name,
+      quantity: this.state.quantity,
+      price: this.state.price,
+      date_received: this.state.date_received,
+      exp_date: this.state.exp_date,
+    };
+
     if (!this.state.name || !this.state.quantity) {
       alert('Fill out the full information please!');
     } else {
-      axios
-        .post(`http://localhost:3001/api/items/items`)
-        .then((req, res) => {
-          const itemsList = req.body;
-          console.log('TESTING req.body', this.state.name);
-          res.send('it works!');
-
-          this.setState({ itemsList });
-          res.end();
-          // console.log(itemsList);
-        });
-      // once submit button is clicked need to send item form information to items database
-      // Using axios.post. Then need a .then(res.send(form submitted). Look up documentation to make this work
-
-      alert(`${this.state.name} has been successfully saved`);
+      item(chicken).then((res) => {
+        // this.props.history.push(`/`);
+        alert('New Item works!');
+      });
     }
-
-    this.setState({
-      name: '',
-      quanitity: '',
-      expiration: '',
-    });
-  };
+  }
 
   render() {
-    // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
         <p>Item Form</p>
@@ -67,15 +56,30 @@ class ItemForm extends Component {
             value={this.state.quantity}
             name="quantity"
             onChange={this.handleInputChange}
-            type="text"
+            type="number"
             placeholder="Quantity"
           />
           <input
-            value={this.state.expiration}
-            name="expiration"
+            value={this.state.price}
+            name="price"
             onChange={this.handleInputChange}
-            type="expiration"
-            placeholder="expiration"
+            type="decimal"
+            placeholder="Price"
+          />
+          <input
+            value={this.state.date_received}
+            name="date_received"
+            onChange={this.handleInputChange}
+            type="date"
+            placeholder="Date Received"
+          />
+
+          <input
+            value={this.state.exp_date}
+            name="exp_date"
+            onChange={this.handleInputChange}
+            type="date"
+            placeholder="exp_date"
           />
           <button onClick={this.handleFormSubmit}>Submit</button>
         </form>
@@ -84,4 +88,104 @@ class ItemForm extends Component {
   }
 }
 
-export default ItemForm;
+// import React, { Component } from 'react';
+// const axios = require('axios');
+
+// class ItemForm extends Component {
+//   // Setting the component's initial state
+//   constructor(){
+//     super();
+//     this.state = {
+//       name: '',
+//       quantity: '',
+//       exp_date: '',
+//     };
+//     this.onChange = this.onChange.bind(this);
+//     this.handleInputChange = this.onChange.bind(this);
+//   }
+// onChange(event){
+//   this.setState({[event.target.name]: event.target.value})
+// }
+//   handleInputChange(event) {
+//     event.preventDefault();
+//     // Getting the value and name of the input which triggered the change
+
+//     // let value = event.target.value;
+//     // const name = event.target.name;
+//     // // Updating the input's state
+//     // this.setState({
+//     //   [name]: value,
+//     // });
+//     const newItem = {
+//       name: this.state.name,
+//       quantity: this.state.quantity,
+//       exp_date: this.state.exp_date,
+//     }
+//   };
+
+//   handleFormSubmit = (event) => {
+//     // Preventing the default behavior of the form submit (which is to refresh the page)
+
+//     event.preventDefault();
+//     if (!this.state.name || !this.state.quantity) {
+//       alert('Fill out the full information please!');
+//     } else {
+//       axios
+//         .post(`http://localhost:3001/api/items/items`)
+//         .then((req, res) => {
+//           const itemsList = req.body;
+//           console.log('TESTING req.body', this.state.name);
+//           res.send('it works!');
+
+//           this.setState({ itemsList });
+//           res.end();
+//           // console.log(itemsList);
+//         });
+//       // once submit button is clicked need to send item form information to items database
+//       // Using axios.post. Then need a .then(res.send(form submitted). Look up documentation to make this work
+
+//       alert(`${this.state.name} has been successfully saved`);
+//     }
+
+//     this.setState({
+//       name: '',
+//       quanitity: '',
+//       exp_date: '',
+//     });
+//   };
+
+//   render() {
+//     // Notice how each input has a `value`, `name`, and `onChange` prop
+//     return (
+//       <div>
+//         <p>Item Form</p>
+//         <form className="form">
+//           <input
+//             value={this.state.name}
+//             name="name"
+//             onChange={this.handleInputChange}
+//             type="text"
+//             placeholder="Item Name"
+//           />
+//           <input
+//             value={this.state.quantity}
+//             name="quantity"
+//             onChange={this.handleInputChange}
+//             type="text"
+//             placeholder="Quantity"
+//           />
+//           <input
+//             value={this.state.exp_date}
+//             name="exp_date"
+//             onChange={this.handleInputChange}
+//             type="exp_date"
+//             placeholder="exp_date"
+//           />
+//           <button onClick={this.handleFormSubmit}>Submit</button>
+//         </form>
+//       </div>
+//     );
+//   }
+// }
+
+// export default ItemForm;
