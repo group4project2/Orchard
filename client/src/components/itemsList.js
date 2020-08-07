@@ -30,14 +30,43 @@ class Items extends Component {
   render() {
     return (
       <div>
-        <h2>Items</h2>
-        <ul>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Item Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.itemsList.map((itemsList) => (
+              <tr>
+                <td key={itemsList.id}>{itemsList.id}</td>
+                <td>{itemsList.name}</td>
+                <td> {itemsList.price}</td>
+                <td>{itemsList.quantity}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        {/* <h2>Items</h2>
+        <tr>
+          {this.state.itemsList.map((itemsList) => (<tr>
+            <td key={itemsList.id}>
+              {itemsList.name},</td><td>{itemsList.quantity},</td><td> {itemsList.price}
+            </td></tr>
+          ))}
+        </tr> */}
+
+        {/* <ul>
           {this.state.itemsList.map((itemsList) => (
             <li key={itemsList.id}>
               {itemsList.name},{itemsList.quantity}, {itemsList.price}
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
     );
   }
