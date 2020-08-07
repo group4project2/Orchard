@@ -4,6 +4,7 @@ import Form from './components/Form';
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
 import OrchardContainer from './components/OrchardContainer';
+import Items from './components/itemsList';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Router>
         <Route exact path="/" component={Form} />
         <Route exact path="/menu" component={OrchardContainer} />
+        <Route exact path="/items" component={Items} />
       </Router>
       <Footer />
     </div>
