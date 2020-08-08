@@ -5,7 +5,7 @@ const Item = require('../models/Item');
 
 // Route        POST api/items
 // Description  Add Item to DB
-item.post('/', (req, res) => {
+item.post('/items', (req, res) => {
   // Storing req.body for cleanliness and readability
   const userInput = req.body;
   // Creating a new item with user input
