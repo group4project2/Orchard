@@ -2,7 +2,7 @@ const axios = require('axios');
 
 export const item = (newItem) => {
   return axios
-    .post('/items', {
+    .post('/api/items/items', {
       name: newItem.name,
       quantity: newItem.quantity,
       price: newItem.price,

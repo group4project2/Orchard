@@ -17,12 +17,18 @@ export default class ItemForm extends Component {
 
   handleInputChange(event) {
     this.setState({ [event.target.name]: event.target.value });
+    // this.setState({ [event.target.quantity]: event.target.value });
+    // this.setState({ [event.target.price]: event.target.value });
+    // this.setState({
+    //   [event.target.date_received]: event.target.value,
+    // });
+    // this.setState({ [event.target.exp_date]: event.target.value });
   }
 
   handleFormSubmit(event) {
     event.preventDefault();
 
-    const chicken = {
+    const itemList = {
       name: this.state.name,
       quantity: this.state.quantity,
       price: this.state.price,
@@ -33,9 +39,9 @@ export default class ItemForm extends Component {
     if (!this.state.name || !this.state.quantity) {
       alert('Fill out the full information please!');
     } else {
-      item(chicken).then((res) => {
+      item(itemList).then((res) => {
         // this.props.history.push(`/`);
-        alert('New Item works!');
+        alert(`${this.state.name} has been successfully saved`);
       });
     }
   }

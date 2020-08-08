@@ -16,7 +16,7 @@ module.exports = db.sequelize.define('item', {
     // allowNull: false,
   },
   price: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.DECIMAL(10, 2),
     // allowNull: false,
   },
   date_received: {
