@@ -6,7 +6,9 @@
 }
 .navbar {
   background: linear-gradient(0deg, rgba(134,134,134,0.700717787114846) 27%, rgba(170,170,170,0.6811099439775911) 66%);
-  
+}
+.nav-tabs {
+  margin-top: 5%;
 }
 
 #nav-logo {
@@ -52,4 +54,7 @@ body {
 
 #form-font {
   font-family: 'Montserrat', sans-serif;
+}
+.table{
+  margin-top: 8%;
 }

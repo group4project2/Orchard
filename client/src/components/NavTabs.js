@@ -31,10 +31,10 @@ function NavTabs(props) {
       </li>
       <li className="nav-item">
         <a
-          href="#Edit"
-          onClick={() => props.handlePageChange('Edit')}
+          href="#View"
+          onClick={() => props.handlePageChange('View')}
           className={
-            props.currentPage === 'Edit'
+            props.currentPage === 'View'
               ? 'nav-link active'
               : 'nav-link'
           }

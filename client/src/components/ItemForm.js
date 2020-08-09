@@ -70,8 +70,9 @@ export default class ItemForm extends Component {
             name="price"
             onChange={this.handleInputChange}
             type="decimal"
-            placeholder="Price"
+            placeholder="Price (i.e. 1.5 or .85)"
           />
+          Date received: 
           <input
             value={this.state.date_received}
             name="date_received"
@@ -79,7 +80,7 @@ export default class ItemForm extends Component {
             type="date"
             placeholder="Date Received"
           />
-
+          Expiration Date:
           <input
             value={this.state.exp_date}
             name="exp_date"

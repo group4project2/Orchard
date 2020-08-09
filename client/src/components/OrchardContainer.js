@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import NavTabs from "./NavTabs";
 import Menu from "./Pages/Menu";
 import Add from "./Pages/Add";
-import Edit from "./Pages/Edit";
+import View from "./Pages/View";
 import Contact from "./Pages/Contact";
 
 
@@ -21,8 +21,8 @@ class OrchardContainer extends Component {
       return <Menu />;
     } else if (this.state.currentPage === "Add") {
       return <Add />;
-    } else if (this.state.currentPage === "Edit") {
-      return <Edit />;
+    } else if (this.state.currentPage === "View") {
+      return <View />;
     } else if (this.state.currentPage === "Contact") {
       return <Contact />;
     } else {
