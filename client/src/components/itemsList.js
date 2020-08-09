@@ -33,10 +33,12 @@ class Items extends Component {
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">#</th>
+              <th scope="col">ID #</th>
               <th scope="col">Item Name</th>
               <th scope="col">Price</th>
               <th scope="col">Quantity</th>
+              <th scope="col">Date Received</th>
+              <th scope="col">Expiration Date</th>
             </tr>
           </thead>
           <tbody>
