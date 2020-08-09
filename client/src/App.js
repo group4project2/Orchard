@@ -4,7 +4,8 @@ import Form from './components/Form';
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
 import OrchardContainer from './components/OrchardContainer';
-import Items from './components/itemsList';
+import View from './components/Pages/View';
+// import Add from './components/Pages/Add';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <Router>
         <Route exact path="/" component={Form} />
         <Route exact path="/menu" component={OrchardContainer} />
-        <Route exact path="/items" component={Items} />
+        <Route exact path="/items" component={View} />
+        {/* <Route exact path="/menu#Add" component={Add} /> */}
       </Router>
       <Footer />
     </div>

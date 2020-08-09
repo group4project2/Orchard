@@ -1,10 +1,10 @@
-import React from "react";
-import Items from "../itemsList";
+import React from 'react';
+import Items from '../itemsList';
 
 const View = () => (
-    <div>
-        <h1>Inventory</h1>
-        <Items />
-    </div>
+  <div>
+    <h1>Inventory</h1>
+    <Items />
+  </div>
 );
 export default View;

@@ -1,30 +1,28 @@
-import React, { Component } from "react";
-import NavTabs from "./NavTabs";
-import Menu from "./Pages/Menu";
-import Add from "./Pages/Add";
-import View from "./Pages/View";
-import Contact from "./Pages/Contact";
-
-
+import React, { Component } from 'react';
+import NavTabs from './NavTabs';
+import Menu from './Pages/Menu';
+import Add from './Pages/Add';
+import View from './Pages/View';
+import Contact from './Pages/Contact';
 
 class OrchardContainer extends Component {
   state = {
-    currentPage: "Menu"
+    currentPage: 'Menu',
   };
 
-  handlePageChange = page => {
+  handlePageChange = (page) => {
     this.setState({ currentPage: page });
   };
 
   renderPage = () => {
-    if (this.state.currentPage === "Menu") {
+    if (this.state.currentPage === 'Menu') {
       return <Menu />;
-    } else if (this.state.currentPage === "Add") {
+    } else if (this.state.currentPage === 'Add') {
       return <Add />;
-    } else if (this.state.currentPage === "View") {
-      return <View />;
-    } else if (this.state.currentPage === "Contact") {
+    } else if (this.state.currentPage === 'Contact') {
       return <Contact />;
+    } else if (this.state.currentPage === 'View') {
+      return <View />;
     } else {
       return <Menu />;
     }
