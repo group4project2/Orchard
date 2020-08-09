@@ -48,6 +48,8 @@ class Items extends Component {
                 <td>{itemsList.name}</td>
                 <td> {itemsList.price}</td>
                 <td>{itemsList.quantity}</td>
+                <td>{itemsList.date_received}</td>
+                <td>{itemsList.exp_date}</td>
               </tr>
             ))}
           </tbody>
