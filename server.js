@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use('/api/categories', require('./controllers/Categories'));
   app.use('/api/items', require('./controllers/Items'));
   app.get('*', (req, res) => {
-    res.sendFile(path.join(_dirname + '/client/build/'));
+    res.sendFile(path.join(__dirname + '/client/build/'));
   });
 }
 // Add routes, both API and view
