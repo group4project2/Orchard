@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "password",
-    "database": "testOrchard",
+    "database": "Orchard",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

@@ -19,7 +19,8 @@ if (config.use_env_variable) {
     config.username,
     config.password,
     {
-      host: 'localhost',
+      //↓ "host:" work on heroku and localhost environment( orignally was "host: 'localhost')!
+      host: config.host,
       dialect: 'mysql',
       operatorsAliases: false,
 
