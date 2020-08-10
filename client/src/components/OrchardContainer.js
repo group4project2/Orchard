@@ -4,6 +4,7 @@ import Menu from './Pages/Menu';
 import Add from './Pages/Add';
 import View from './Pages/View';
 import Contact from './Pages/Contact';
+import About from './Pages/About'
 
 class OrchardContainer extends Component {
   state = {
@@ -23,6 +24,8 @@ class OrchardContainer extends Component {
       return <Contact />;
     } else if (this.state.currentPage === 'View') {
       return <View />;
+    } else if (this.state.currentPage === 'About') {
+      return <About />;
     } else {
       return <Menu />;
     }

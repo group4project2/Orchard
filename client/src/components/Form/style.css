@@ -58,3 +58,8 @@ body {
 .table{
   margin-top: 8%;
 }
+
+.card-about{
+  max-width: 300px;
+}
+
