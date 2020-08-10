@@ -20,12 +20,20 @@ GIVEN THE CONSTRAINT OF their different expiration dates
 <img src = "assets/images/updateItems.png" width = "350"> <br>
 <img src = "assets/images/newItem.png" width = "350"> <br>
 
+## Swimlane Diagram
+
+<img src = "assets/images/diagram.png" width = "400"> <br>
+
 ## Developing
 
 MVP
 
-- Authenticate employees to access web application through a form
+- Authenticate employees to access web application through a login form
 - Implementation of CRUD
+
+- Have user add items into Orchard Inventory through form
+
+
 
 Nice to Have
 

@@ -7,9 +7,9 @@ class Menu extends Component {
     return (
       <div>
         {/* add button */}
-        <Link to="/#Add">
+        {/* <Link to="#Add">
           <Card heading="Add Items to inventory" />
-        </Link>
+        </Link> */}
         {/* view button */}
         <Link to="/items">
           <Card heading="View Items List" />
