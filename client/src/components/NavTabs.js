@@ -55,6 +55,19 @@ function NavTabs(props) {
           Contact
         </a>
       </li>
+      {/* <li className="nav-item">
+        <a
+          href="#contact"
+          onClick={() => props.handlePageChange('Logout')}
+          className={
+            props.currentPage === 'Logout'
+              ? 'nav-link active'
+              : 'nav-link'
+          }
+        >
+          Logout
+        </a>
+      </li> */}
     </ul>
   );
 }

@@ -5,6 +5,8 @@
 // *** Dependencies
 // =============================================================
 const express = require('express');
+
+const cors = require('cors');
 //const routes = require('./controllers/');
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -13,9 +15,11 @@ var db = require('./database');
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
+  app.use('/api/users', require('./controllers/Users'));
 }
 // Add routes, both API and view
 //app.use(routes);
@@ -24,6 +28,7 @@ if (process.env.NODE_ENV === 'development') {
 // MIKES CHANGES: Refactored route definitions to be shorter and more clear
 app.use('/api/categories', require('./controllers/Categories'));
 app.use('/api/items', require('./controllers/Items'));
+app.use('/api/users', require('./controllers/Users'));
 
 // app.get('/items', (req, res) => {
 //   const items = [
