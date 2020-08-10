@@ -5,9 +5,11 @@
 ## User Story
 
 ```
-As a farmer market vendor
-I WANT a reliable and safe online application
-SO THAT I can manage my inventory items
+AS a farmer/gardener/florist,
+I WANT an application
+THAT CAN MANAGE a wide variety of plants, fruits, and vegetables 
+TO HELP sell items
+GIVEN THE CONSTRAINT OF their different expiration dates
 ```
 
 ## Design
@@ -24,7 +26,6 @@ MVP
 
 - Authenticate employees to access web application through a form
 - Implementation of CRUD
-- Automate sales transactions
 
 Nice to Have
 
