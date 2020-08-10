@@ -20,11 +20,11 @@ module.exports = db.sequelize.define('item', {
     // allowNull: false,
   },
   date_received: {
-    type: Sequelize.DATE,
+    type: Sequelize.DATEONLY,
     // allowNull: false,
   },
   exp_date: {
-    type: Sequelize.DATE,
+    type: Sequelize.DATEONLY,
     // allowNull: false,
   },
 });
