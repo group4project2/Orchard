@@ -6,7 +6,7 @@ function Juliet() {
       <div className="card card-about">
         <img
           className="card-img-top"
-          src={require('./banana.png')}
+          src={require('./julietplant.jpg')}
           alt="Juliet"
         />
         <div className="card-body">
